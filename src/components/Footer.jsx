@@ -1,16 +1,18 @@
 import React from "react";
 import { FaInstagram, FaTelegramPlane, FaWhatsapp, FaEnvelope } from "react-icons/fa";
+// Import the Link component
+import { Link } from "react-router-dom";
 
 const Footer = () => {
     return (
         <footer className="bg-gray-900 text-gray-300 text-center py-10 mt-16">
-            {/* Navigation Links */}
+            {/* Navigation Links - Use Link component */}
             <div className="flex justify-center gap-8 mb-6">
-                <a href="/about" className="hover:text-white transition">About</a>
-                <a href="/contact" className="hover:text-white transition">Contact</a>
+                <Link to="/about" className="hover:text-white transition">About</Link>
+                <Link to="/contact" className="hover:text-white transition">Contact</Link>
             </div>
 
-            {/* Social Media Icons */}
+            {/* Social Media Icons - These are external, so <a> is correct */}
             <div className="flex justify-center gap-6 mb-6 text-2xl">
                 <a
                     href="https://www.instagram.com/revo.bloom"
