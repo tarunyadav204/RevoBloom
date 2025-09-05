@@ -6,7 +6,7 @@ const FloatingSocialMenu = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     const socials = [
-        { icon: <FaFacebook />, link: "https://facebook.com", color: "bg-blue-600" },
+        
         { icon: <FaInstagram />, link: "https://www.instagram.com/revo.bloom", color: "bg-pink-500" },
         { icon: <FaTelegram />, link: "http://t.me/Revobloom", color: "bg-blue-500" },
         {
