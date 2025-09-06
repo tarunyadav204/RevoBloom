@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FaGift, FaStar, FaCheckCircle, FaFilePdf } from "react-icons/fa";
-import BackgroundImg from "../assets/backgroundBank.png"; // ✅ your background
+import { Helmet } from "react-helmet-async";
+import BackgroundImg from "../assets/backgroundBank.png"; // ✅ background
 
 const Modal = ({ isOpen, onClose, title, children }) => {
     if (!isOpen) return null;
@@ -45,19 +46,56 @@ const BankDetails = ({ banks }) => {
 
     if (!bank) return <p>Bank not found</p>;
 
+    // ✅ JSON-LD structured data
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": bank.name,
+        "url": `https://revobloom.in/bank/${bank.id}`,
+        "logo": bank.logo,
+        "sameAs": [
+            "https://www.instagram.com/revo.bloom",
+            "http://t.me/Revobloom",
+            "https://wa.me/919534624838?text=Hi%20I%20am%20interested%20in%20credit%20cards%20and%20offers.%20Can%20you%20help%20me%20choose%20the%20best%20one%3F"
+        ],
+        "makesOffer": bank.cards.map((card) => ({
+            "@type": "Offer",
+            "itemOffered": {
+                "@type": "Product",
+                "name": card.name,
+                "description": card.description || `${card.name} credit card by ${bank.name}`,
+                "brand": bank.name
+            },
+            "priceCurrency": "INR",
+            "price": card.annualFee || "0", // fallback if no fee
+            "availability": "https://schema.org/InStock"
+        }))
+    };
+
     return (
         <div
             className="min-h-screen relative flex flex-col items-center justify-center px-4"
             style={{
-                backgroundImage: `url(${BackgroundImg})`, // keep your background image
+                backgroundImage: `url(${BackgroundImg})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
             }}
         >
+            <Helmet>
+                <title>{bank.name} | RevoBloom</title>
+                <meta
+                    name="description"
+                    content={`Explore ${bank.name}'s best credit cards and offers on RevoBloom.`}
+                />
+                <script type="application/ld+json">
+                    {JSON.stringify(jsonLd)}
+                </script>
+            </Helmet>
+
             {/* Gradient overlay */}
             <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/40 to-transparent"></div>
 
-            {/* ✅ Help PDF button - top right */}
+            {/* ✅ Help PDF button */}
             {bank.helpPdf && (
                 <a
                     href={bank.helpPdf}
@@ -72,11 +110,12 @@ const BankDetails = ({ banks }) => {
 
             {/* Layout: Sidebar + Content */}
             <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-4 gap-8 px-6 py-10">
-                {/* Sticky Sidebar (Header Section) */}
+                {/* Sidebar */}
                 <div className="lg:col-span-1">
                     <div className="sticky top-6 bg-white/10 backdrop-blur-xl p-8 rounded-2xl shadow-2xl text-center text-white border border-white/20">
                         <img
                             src={bank.logo}
+                            loading="lazy"
                             alt={bank.name}
                             className="mx-auto w-24 h-24 drop-shadow-lg rounded-full bg-white/20 p-2"
                         />
@@ -89,7 +128,7 @@ const BankDetails = ({ banks }) => {
                     </div>
                 </div>
 
-                {/* Cards Section */}
+                {/* Cards */}
                 <div className="lg:col-span-3 grid grid-cols-1 md:grid-cols-2 gap-8">
                     {bank.cards.map((card, index) => (
                         <motion.div
@@ -100,17 +139,14 @@ const BankDetails = ({ banks }) => {
                             whileHover={{ scale: 1.05, rotate: 1 }}
                             className="relative bg-white/90 backdrop-blur-lg rounded-2xl p-6 shadow-xl hover:shadow-2xl border border-gray-200 transition-all flex flex-col transform hover:scale-105"
                         >
-                            {/* Popular Tag */}
                             {card.offerPrice && (
                                 <span className="absolute top-3 right-3 bg-gradient-to-r from-yellow-400 to-orange-500 text-white text-xs px-2 py-1 rounded-full shadow-md">
                                     Popular
                                 </span>
                             )}
 
-                            {/* Card Title */}
                             <h3 className="text-lg font-bold text-gray-900">{card.name}</h3>
 
-                            {/* offerPrice */}
                             {card.offerPrice && (
                                 <div className="mt-3 flex items-center gap-2 text-green-600 font-semibold">
                                     <FaGift />
@@ -118,13 +154,11 @@ const BankDetails = ({ banks }) => {
                                 </div>
                             )}
 
-                            {/* Rating */}
                             <div className="mt-3 flex items-center gap-2 text-yellow-500">
                                 <FaStar className="fill-yellow-400" />
                                 <span className="text-gray-700 text-sm">(4.0/5)</span>
                             </div>
 
-                            {/* Features */}
                             {card.features && (
                                 <ul className="mt-4 text-sm text-gray-600 space-y-1">
                                     {card.features.map((feat, i) => (
@@ -136,7 +170,6 @@ const BankDetails = ({ banks }) => {
                                 </ul>
                             )}
 
-                            {/* Buttons */}
                             <div className="mt-6 flex flex-col sm:flex-row gap-3 w-full">
                                 <a
                                     href={card.link}

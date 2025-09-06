@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Home -->
+  <url>
+    <loc>https://revobloom.in/</loc>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- About -->
+  <url>
+    <loc>https://revobloom.in/about</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Contact -->
+  <url>
+    <loc>https://revobloom.in/contact</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Example bank pages -->
+  <url>
+    <loc>https://revobloom.in/bank/hdfc</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://revobloom.in/bank/icici</loc>
+    <priority>0.7</priority>
+  </url>
+</urlset>

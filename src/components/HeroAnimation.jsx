@@ -12,7 +12,7 @@ const HeroAnimation = () => {
                 animate={{ y: [0, -20, 0], opacity: 1 }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             >
-                <img src={card1} alt="Credit Card" className="w-72 drop-shadow-2xl" />
+                <img src={card1} alt="Credit Card" loading="lazy" className="w-72 drop-shadow-2xl" />
             </motion.div>
 
             <motion.div
@@ -21,7 +21,7 @@ const HeroAnimation = () => {
                 animate={{ rotate: [0, -10, 0], opacity: 1 }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
             >
-                <img src={card2} alt="Credit Card" className="w-64 drop-shadow-xl" />
+                <img src={card2} alt="Credit Card" loading="lazy" className="w-64 drop-shadow-xl" />
             </motion.div>
 
             <motion.div
@@ -30,7 +30,7 @@ const HeroAnimation = () => {
                 animate={{ rotate: [0, 10, 0], opacity: 1 }}
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
             >
-                <img src={card3} alt="Credit Card" className="w-64 drop-shadow-xl" />
+                <img src={card3} alt="Credit Card" loading="lazy" className="w-64 drop-shadow-xl" />
             </motion.div>
         </div>
     );

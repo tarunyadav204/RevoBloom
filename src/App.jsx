@@ -6,8 +6,10 @@ import ContactUs from "./components/ContactUs";
 import HeroSection from "./components/HeroSection";
 import BankList from "./components/BankList";
 import Footer from "./components/Footer";
+import WhatsAppButton from "./components/WhatsAppButton";
 import About from "./components/About";
 import FloatingSocialMenu from "./components/FloatingSocialMenu";
+import { Helmet } from "react-helmet-async";
 
 function App() {
   const [search, setSearch] = useState("");
@@ -20,7 +22,7 @@ function App() {
       ...bank,
       cards: bank.cards.filter((card) => card.type === activeTab),
     }))
-    .filter((bank) => bank.cards.length > 0); // only show banks with cards for this tab
+    .filter((bank) => bank.cards.length > 0);
 
   return (
     <Routes>
@@ -28,46 +30,79 @@ function App() {
       <Route
         path="/"
         element={
-          <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 flex flex-col">
-            {/* Hero / Search */}
-            <HeroSection search={search} setSearch={setSearch} />
+          <>
+            <Helmet>
+              <title>RevoBloom | Smart Finance</title>
+              <meta
+                name="description"
+                content="RevoBloom helps you compare and apply for the best credit cards, savings accounts, and cashback offers in India. Discover rewards, travel, and cashback cards from top banks."
+              />
+              <meta
+                name="keywords"
+                content="RevoBloom, credit cards, savings accounts, compare cards, cashback, rewards, travel, best credit card India"
+              />
+              <meta name="author" content="RevoBloom" />
 
-            {/* Tabs */}
-            <div className="w-full mt-6 px-3 sm:px-6">
-              <div className="flex flex-wrap justify-center gap-2 sm:gap-4">
-                {["saving", "credit", "deals"].map((tab) => (
-                  <button
-                    key={tab}
-                    onClick={() => setActiveTab(tab)}
-                    className={`px-4 sm:px-6 py-2 rounded-full text-sm sm:text-base font-semibold transition 
-                      ${activeTab === tab
+              {/* Open Graph */}
+              <meta property="og:title" content="RevoBloom | Smart Finance" />
+              <meta
+                property="og:description"
+                content="Compare and apply for the best credit cards in India. Cashback, rewards, travel cards – all in one place."
+              />
+              <meta
+                property="og:image"
+                content="https://revobloom.in/og-image.png"
+              />
+              <meta property="og:url" content="https://revobloom.in/" />
+              <meta property="og:type" content="website" />
+
+              {/* Twitter */}
+              <meta name="twitter:card" content="summary_large_image" />
+              <meta name="twitter:title" content="RevoBloom | Smart Finance" />
+              <meta
+                name="twitter:description"
+                content="Find the perfect credit card for cashback, rewards, or travel. RevoBloom makes it simple."
+              />
+              <meta
+                name="twitter:image"
+                content="https://revobloom.in/og-image.png"
+              />
+            </Helmet>
+
+            <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 flex flex-col">
+              <HeroSection search={search} setSearch={setSearch} />
+
+              {/* Tabs */}
+              <div className="max-w-4xl mx-auto mt-6 px-4">
+                <div className="flex justify-center gap-4">
+                  {["saving", "credit", "deals"].map((tab) => (
+                    <button
+                      key={tab}
+                      onClick={() => setActiveTab(tab)}
+                      className={`px-6 py-2 rounded-full font-semibold transition ${activeTab === tab
                         ? "bg-indigo-600 text-white shadow-lg"
                         : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-                      }`}
-                  >
-                    {tab === "saving" && "Saving Accounts"}
-                    {tab === "credit" && "Credit Cards"}
-                    {tab === "deals" && "Brand Cashbacks"}
-                  </button>
-                ))}
+                        }`}
+                    >
+                      {tab === "saving" && "Saving Accounts"}
+                      {tab === "credit" && "Credit Cards"}
+                      {tab === "deals" && "Brand Cashbacks"}
+                    </button>
+                  ))}
+                </div>
               </div>
-            </div>
 
-            {/* Bank List */}
-            <div className="flex-1 px-2 sm:px-4 mt-4">
+              {/* Bank List */}
               <BankList banks={filteredBanks} />
+
+              <FloatingSocialMenu />
+              <Footer />
             </div>
-
-            {/* Floating Social Menu */}
-            <FloatingSocialMenu />
-
-            {/* Footer */}
-            <Footer />
-          </div>
+          </>
         }
       />
 
-      {/* Bank Details Page */}
+      {/* Other Pages */}
       <Route path="/bank/:id" element={<BankDetails banks={banks} />} />
       <Route path="/contact" element={<ContactUs />} />
       <Route path="/about" element={<About />} />

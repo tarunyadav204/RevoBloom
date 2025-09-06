@@ -47,6 +47,7 @@ const BankCard = ({ bank }) => {
                 <img
                     src={bank.logo}
                     alt={bank.name}
+                    loading="lazy"
                     className="w-12 h-12 object-contain"
                 />
             </motion.div>
@@ -56,7 +57,7 @@ const BankCard = ({ bank }) => {
                 <h3 className="text-xl font-bold drop-shadow-sm">{bank.name}</h3>
                 <p className="text-sm mt-2 opacity-90">{bank.description}</p>
                 <p className="mt-3 inline-block px-3 py-1 text-xs font-semibold bg-white/20 rounded-full shadow-sm">
-                    {bank.cards?.length || 0}{bank.cards?.length > 1 ? "s" : ""} Available
+                    {bank.cards?.length || 0} Card{bank.cards?.length > 1 ? "s" : ""} Available
                 </p>
 
             </div>

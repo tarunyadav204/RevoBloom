@@ -31,6 +31,7 @@ const HeroSection = ({ search, setSearch }) => {
                 <motion.img
                     src={Logo}
                     alt="Revobloom Logo"
+                    loading="lazy"
                     className="mx-auto mb-6 drop-shadow-lg"
                     initial={{ x: 0, y: 0, scale: 1 }}
                     animate={
@@ -88,6 +89,7 @@ const HeroSection = ({ search, setSearch }) => {
                         <img
                             src={card1}
                             className="w-64 drop-shadow-2xl rounded-xl"
+                            loading="lazy"
                             alt="Card"
                         />
                     </div>
@@ -95,6 +97,7 @@ const HeroSection = ({ search, setSearch }) => {
                         <img
                             src={card2}
                             className="w-52 drop-shadow-2xl rounded-xl"
+                            loading="lazy"
                             alt="Card"
                         />
                     </div>
