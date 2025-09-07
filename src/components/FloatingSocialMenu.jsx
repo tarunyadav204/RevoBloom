@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaFacebook, FaInstagram, FaComments, FaWhatsapp, FaTelegram } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaComments, FaWhatsapp, FaTelegram, FaYoutube } from "react-icons/fa";
 
 const FloatingSocialMenu = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     const socials = [
-        
+        { icon: <FaFacebook />, link: "https://www.facebook.com/profile.php?id=61580654630961", color: "bg-blue-700" },
+        { icon: <FaYoutube />, link: "https://www.youtube.com/@REVOBLOOM", color: "bg-red-600" },
         { icon: <FaInstagram />, link: "https://www.instagram.com/revo.bloom", color: "bg-pink-500" },
         { icon: <FaTelegram />, link: "http://t.me/Revobloom", color: "bg-blue-500" },
         {
