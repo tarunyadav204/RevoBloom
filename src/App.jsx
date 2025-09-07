@@ -9,7 +9,7 @@ import Footer from "./components/Footer";
 import WhatsAppButton from "./components/WhatsAppButton";
 import About from "./components/About";
 import FloatingSocialMenu from "./components/FloatingSocialMenu";
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "@vuer-ai/react-helmet-async";  // ✅ updated import
 
 function App() {
   const [search, setSearch] = useState("");

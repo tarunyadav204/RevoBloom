@@ -1,6 +1,7 @@
 import React from "react";
 import Logo from "../assets/logoRemove.png"; // <-- Save your new Revobloom logo here
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "@vuer-ai/react-helmet-async";  // ✅ updated import
+
 const About = () => {
     return (
         <>

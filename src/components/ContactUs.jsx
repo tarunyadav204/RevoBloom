@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "@vuer-ai/react-helmet-async";
+
 import {
     FaUser,
     FaEnvelope,

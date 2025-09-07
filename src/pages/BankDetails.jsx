@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FaGift, FaStar, FaCheckCircle, FaFilePdf } from "react-icons/fa";
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "@vuer-ai/react-helmet-async";
 import BackgroundImg from "../assets/backgroundBank.png"; // ✅ background
 
 const Modal = ({ isOpen, onClose, title, children }) => {
