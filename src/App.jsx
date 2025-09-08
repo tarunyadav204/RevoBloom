@@ -29,24 +29,35 @@ function App() {
         path="/"
         element={
           <>
-            <Helmet>
+            {/*  <Helmet>
               <title>RevoBloom | Smart Finance</title>
               <meta
                 name="description"
-                content="RevoBloom helps you compare and apply for the best credit cards, savings accounts, and cashback offers in India."
+                content="From Credit Cards to Top Brands – Apply, Shop & Earn Real ₹Cash with RevoBloom. Compare top banks, get exclusive rewards, and apply in minutes."
               />
               <meta name="keywords" content="RevoBloom, credit cards, savings accounts, cashback, rewards" />
               <meta name="author" content="RevoBloom" />
-              <meta property="og:title" content="RevoBloom | Smart Finance" />
-              <meta property="og:description" content="Compare and apply for the best credit cards in India." />
+              <meta property="og:title" content="RevoBloom | Apply, Shop & Earn Real ₹Cash" />
+              <meta property="og:description" content="From Credit Cards to Top Brands – Apply, Shop & Earn Real ₹Cash with RevoBloom. Compare top banks, get exclusive rewards, and apply in minutes." />
               <meta property="og:image" content="https://revobloom.in/og-image.png" />
               <meta property="og:url" content="https://revobloom.in/" />
               <meta property="og:type" content="website" />
+
               <meta name="twitter:card" content="summary_large_image" />
-              <meta name="twitter:title" content="RevoBloom | Smart Finance" />
-              <meta name="twitter:description" content="Find the perfect credit card for cashback, rewards, or travel." />
+              <meta property="og:title" content="RevoBloom | Apply, Shop & Earn Real ₹Cash" />
+              <meta name="twitter:description" content="From Credit Cards to Top Brands – Apply, Shop & Earn Real ₹Cash with RevoBloom. Compare top banks, get exclusive rewards, and apply in minutes." />
               <meta name="twitter:image" content="https://revobloom.in/og-image.png" />
+
+            </Helmet> */}
+
+            <Helmet>
+              <title>RevoBloom | Apply, Shop & Earn Real ₹Cash</title>
+              <meta
+                name="description"
+                content="From Credit Cards to Top Brands – Apply, Shop & Earn Real ₹Cash with RevoBloom. Compare top banks, get exclusive rewards, and apply in minutes."
+              />
             </Helmet>
+
 
             <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 flex flex-col">
               <HeroSection search={search} setSearch={setSearch} />
@@ -59,8 +70,8 @@ function App() {
                       key={tab}
                       onClick={() => setActiveTab(tab)}
                       className={`px-4 sm:px-6 py-2 rounded-full font-semibold transition ${activeTab === tab
-                          ? "bg-indigo-600 text-white shadow-lg"
-                          : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                        ? "bg-indigo-600 text-white shadow-lg"
+                        : "bg-gray-200 text-gray-700 hover:bg-gray-300"
                         } text-sm sm:text-base flex-1 sm:flex-auto text-center`}
                     >
                       {tab === "saving" && "Saving Accounts"}

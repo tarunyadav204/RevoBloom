@@ -81,7 +81,7 @@ const BankDetails = ({ banks }) => {
                 backgroundPosition: "center",
             }}
         >
-            <Helmet>
+           {/* <Helmet>
                 <title>{bank.name} | RevoBloom</title>
                 <meta
                     name="description"
@@ -90,7 +90,21 @@ const BankDetails = ({ banks }) => {
                 <script type="application/ld+json">
                     {JSON.stringify(jsonLd)}
                 </script>
+            </Helmet> */}
+
+            <Helmet>
+                <title>{bank.name} | RevoBloom</title>
+                <meta
+                    name="description"
+                    content={`Explore ${bank.name}'s best credit cards, offers, and rewards on RevoBloom. Apply, Shop & Earn Real ₹Cash!`}
+                />
+                <link rel="canonical" href={`https://revobloom.in/bank/${bank.id}`} />
+                {/* JSON-LD structured data for rich results */}
+                <script type="application/ld+json">
+                    {JSON.stringify(jsonLd)}
+                </script>
             </Helmet>
+
 
             {/* Gradient overlay */}
             <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/40 to-transparent"></div>

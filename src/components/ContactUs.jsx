@@ -50,7 +50,7 @@ const ContactUs = () => {
     return (
         <>
 
-            <Helmet>
+           {/* <Helmet>
                 <title>Contact Us | RevoBloom</title>
                 <meta
                     name="description"
@@ -60,7 +60,17 @@ const ContactUs = () => {
                     name="keywords"
                     content="RevoBloom contact, support, help, customer service, partnership"
                 />
+            </Helmet>  */}
+
+            <Helmet>
+                <title>Contact Us | RevoBloom</title>
+                <meta
+                    name="description"
+                    content="Get in touch with RevoBloom for support, credit card queries, or partnership opportunities. We're here to help you apply, shop & earn real ₹Cash!"
+                />
+                <link rel="canonical" href="https://revobloom.in/contact" />
             </Helmet>
+
 
             <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 flex flex-col items-center justify-center p-6 space-y-8">
 

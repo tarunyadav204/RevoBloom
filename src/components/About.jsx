@@ -5,14 +5,24 @@ import { Helmet } from "@vuer-ai/react-helmet-async";  // ✅ updated import
 const About = () => {
     return (
         <>
-            <Helmet>
+           {/* <Helmet>
                 <title>About RevoBloom | RevoBloom</title>
                 <meta name="description" content="About RevoBloom — we help you find the best credit cards, savings and deals in India." />
                 <meta property="og:title" content="About RevoBloom | RevoBloom" />
                 <meta property="og:description" content="Learn about RevoBloom..." />
                 <meta property="og:image" content="https://revobloom.in/og-image.png" />
                 <link rel="canonical" href="https://revobloom.in/about" />
+            </Helmet> */}
+
+            <Helmet>
+                <title>About RevoBloom | Apply, Shop & Earn Real ₹Cash</title>
+                <meta
+                    name="description"
+                    content="Learn about RevoBloom — Apply, Shop & Earn Real ₹Cash with the best credit cards and deals in India."
+                />
+                <link rel="canonical" href="https://revobloom.in/about" />
             </Helmet>
+
 
             <div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50 px-4">
                 <div className="max-w-3xl w-full shadow-2xl rounded-2xl overflow-hidden border bg-white">
