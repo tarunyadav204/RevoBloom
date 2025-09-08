@@ -77,9 +77,35 @@ const HeroSection = ({ search, setSearch }) => {
                 <p className="text-lg opacity-90 mb-6">
                     Compare top banks, get exclusive rewards, and apply in minutes.
                 </p>
-                <button className="px-6 py-3 bg-yellow-400 text-black font-semibold rounded-full shadow-lg hover:scale-105 hover:shadow-2xl transition">
+                {/* ✅ New tagline */}
+                <motion.p
+                    className="italic text-xl md:text-2xl font-extrabold text-yellow-300 drop-shadow-lg mb-6 max-w-3xl"
+                    initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    transition={{ duration: 1, ease: "easeOut" }}
+                    whileHover={{ scale: 1.05, color: "#fff176" }}
+                >
+                    🚀 From <span className="text-white">Credit Cards</span> to
+                    <span className="text-white"> Top Brands</span> – Apply, Shop &
+                    <span className="text-green-300"> Earn Real ₹Cash</span> with RevoBloom!
+                </motion.p>
+
+                {/* ✅ Centered Separator */}
+                <motion.div
+                    className="w-3/4 md:w-1/2 border-b-4 border-yellow-400 mx-auto mb-6"
+                    initial={{ scaleX: 0 }}
+                    animate={{ scaleX: 1 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                />
+
+                {/* Call to Action */}
+                <motion.button
+                    className="bg-yellow-400 text-black font-semibold px-6 py-3 rounded-full shadow-lg hover:bg-yellow-500 transition"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                >
                     Find My Best Card
-                </button>
+                </motion.button>
             </div>
 
             {/* Floating Cards - show only on desktop */}
