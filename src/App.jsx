@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { banks } from "./data/banks";
 import BankDetails from "./pages/BankDetails";
@@ -10,10 +10,17 @@ import WhatsAppButton from "./components/WhatsAppButton";
 import About from "./components/About";
 import FloatingSocialMenu from "./components/FloatingSocialMenu";
 import { Helmet } from "@vuer-ai/react-helmet-async";
-
+import PromoPopup from "./components/PromoPopup";
 function App() {
   const [search, setSearch] = useState("");
   const [activeTab, setActiveTab] = useState("credit");
+
+  const [showPopup, setShowPopup] = useState(false);
+
+  useEffect(() => {
+    setShowPopup(true);
+  }, []);
+
 
   const filteredBanks = banks
     .filter((bank) => bank.name.toLowerCase().includes(search.toLowerCase()))
@@ -57,6 +64,9 @@ function App() {
                 content="From Credit Cards to Top Brands – Apply, Shop & Earn Real ₹Cash with RevoBloom. Compare top banks, get exclusive rewards, and apply in minutes."
               />
             </Helmet>
+
+
+            <PromoPopup isOpen={showPopup} onClose={() => setShowPopup(false)} />
 
 
             <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 flex flex-col">
